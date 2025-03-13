@@ -15,9 +15,7 @@ El programa debe permitir ingresar múltiples participantes hasta que el usuario
 
 ## **Objetivos del ejercicio**
 - Practicar el uso de **bucles** para el ingreso de datos dinámico.
-- Implementar **cadenas de acumulación** para formatear reportes.
-- Reforzar el **uso de variables** y **tipos de datos** en Python.
-- Calcular el **promedio de edades** de los participantes.
+- Reforzar el **uso de variables**, **tipos de datos** y **listas** en Python.
 
 ## **Ejemplo de salida esperada**
 

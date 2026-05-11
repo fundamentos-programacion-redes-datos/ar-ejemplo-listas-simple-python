@@ -1,0 +1,77 @@
+1.  Inicio
+2.  // Declaración e inicialización de variables
+3.  reporte_participantes, x(500)[{a-z}, {A-Z}, {0-9}, {, }, {.}, {-}, {BS}]
+4.  reporte_participantes <-- "Listado de Participantes \n"
+5.  reporte_edades, x(300)[{a-z}, {A-Z}, {0-9}, {BS}]
+6.  reporte_edades <-- "Listado de Edades \n"
+7.  suma_edades, i[0-n]
+8.  suma_edades <-- 0
+9.  contador, i[0-n]
+10. contador <-- 0
+11. bandera, l
+12. bandera <-- Verdadero
+13. nombres, x(100)[{a-z}, {A-Z}, {BS}]
+14. lenguaje, x(50)[{a-z}, {A-Z}, {BS}]
+15. edad, i[0-n]
+16. nivel, x(30)[{a-z}, {A-Z}, {BS}]
+17. continuar, x(3)[{a-z}, {A-Z}, {BS}]
+18. indice, i[0-n]
+19. promedio_edades, r[0-n]
+20.
+21. // Declaración de listas dinámicas para almacenar la información
+22. lista_nombres(*), x(100)[{a-z}, {A-Z}, {BS}]
+23. lista_lenguajes(*), x(50)[{a-z}, {A-Z}, {BS}]
+24. lista_edades(*), i[0-n]
+25. lista_nivel_experiencia(*), x(30)[{a-z}, {A-Z}, {BS}]
+26.
+27. // Ingreso de datos de participantes
+28. Mientras bandera == Verdadero entonces
+29.     Escribir "Ingrese la información del participante:"
+30.     Escribir "Nombres del participante:"
+31.     Leer nombres
+32.     Escribir "Lenguaje de programación favorito:"
+33.     Leer lenguaje
+34.     Escribir "Edad del participante:"
+35.     Leer edad
+36.     Escribir "Nivel de experiencia: Principiante, Intermedio, Avanzado:"
+37.     Leer nivel
+38.
+39.     // Almacenar la información ingresada
+40.     lista_nombres[contador] <-- nombres
+41.     lista_edades[contador] <-- edad
+42.     lista_lenguajes[contador] <-- lenguaje
+43.     lista_nivel_experiencia[contador] <-- nivel
+44.     contador <-- contador + 1
+45.
+46.     // Preguntar si desea ingresar otro participante
+47.     Escribir "¿Desea ingresar otro participante? si/no:"
+48.     Leer continuar
+49.
+50.     Si continuar != "si" entonces
+51.         bandera <-- Falso
+52.     Fin Si
+53. Fin Mientras
+54.
+55. // Construcción del reporte de participantes
+56. Para (indice <-- 0, indice < contador, 1) entonces
+57.     reporte_participantes <-- reporte_participantes + (indice + 1) + ". " + lista_nombres[indice] + " -" + lista_lenguajes[indice] + "-, edad " + lista_edades[indice] + ", nivel " + lista_nivel_experiencia[indice] + "\n"
+58. Fin Para
+59.
+60. // Sumar las edades y construir el reporte de edades
+61. Para (indice <-- 0, indice < contador, 1) entonces
+62.     suma_edades <-- suma_edades + lista_edades[indice]
+63.     reporte_edades <-- reporte_edades + lista_edades[indice] + "\n"
+64. Fin Para
+65.
+66. // Calcular el promedio de edades
+67. Si contador > 0 entonces
+68.     promedio_edades <-- suma_edades / contador
+69. De lo contrario
+70.     promedio_edades <-- 0
+71. Fin Si
+72.
+73. // Mostrar los reportes finales
+74. Escribir reporte_participantes
+75. Escribir reporte_edades
+76. Escribir "Promedio de edades: " + promedio_edades
+77. Fin
